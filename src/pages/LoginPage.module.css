@@ -1,0 +1,351 @@
+.logoA {
+  text-decoration: none;
+  position: relative;
+  color: inherit;
+  display: inline-block;
+  cursor: auto;
+}
+
+.logoA:hover {
+  cursor: pointer;
+}
+
+.logoDiv {
+  align-self: stretch;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-3xs) 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--tron-blue);
+  font-family: var(--font-tr2n);
+}
+
+.bannerI,
+.vectorIcon {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.bannerI {
+  align-self: stretch;
+  font-size: var(--font-size-lg);
+  display: flex;
+  font-weight: 600;
+  color: var(--color-gray-100);
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+}
+
+.vectorIcon {
+  width: 50px;
+  height: 50px;
+}
+
+.facebookI {
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.facebook,
+.facebook:hover {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.facebook {
+  text-decoration: none;
+  align-self: stretch;
+  border-radius: 15px;
+  border: 1.5px solid var(--color-white);
+  height: 81.5px;
+  flex-direction: row;
+  padding: var(--padding-sm) 75px;
+  gap: 24px;
+  color: inherit;
+  font-size: 22px;
+}
+
+.facebook:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #0d74d3;
+  color: 11ee1e;
+}
+
+.facebook:hover .facebookI {
+  color: #090909;
+}
+
+.dividerLabel,
+.facebook,
+.orI {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orI {
+  position: relative;
+  font-weight: 600;
+  width: 23.66px;
+  height: 13.78px;
+}
+
+.dividerLabel {
+  cursor: pointer;
+  align-self: stretch;
+  height: 24px;
+  flex-direction: row;
+  font-size: 18px;
+}
+
+.rectangleFormGroup {
+  width: 350px;
+  border: 0;
+  background-color: transparent;
+  position: relative;
+}
+
+.emailDiv,
+.passwordDiv {
+  align-self: stretch;
+  background-color: var(--background2);
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 var(--padding-2xl);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: left;
+  font-size: 20px;
+}
+
+.dontHaveAnAccount,
+.signUpA {
+  position: absolute;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-family: var(--font-euclid-circular-a);
+  text-align: left;
+}
+
+.dontHaveAnAccount {
+  top: 3px;
+  left: 0;
+  display: flex;
+  color: var(--color-white);
+  align-items: center;
+  width: 175px;
+  height: 13px;
+}
+
+.signUpA {
+  cursor: pointer;
+  text-decoration: none;
+  top: 0;
+  left: 177px;
+  display: inline-block;
+  font-style: italic;
+  color: 0b48e8;
+}
+
+.groupDiv {
+  position: relative;
+  width: 230px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.footageDiv,
+.form,
+.loginBarResponsiveDiv,
+.loginDiv {
+  background-color: var(--background2);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.footageDiv {
+  align-self: stretch;
+  height: 100px;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--gap-md);
+}
+
+.form,
+.loginBarResponsiveDiv,
+.loginDiv {
+  flex-direction: column;
+}
+
+.form {
+  align-self: stretch;
+  height: 40vh;
+  justify-content: space-between;
+}
+
+.loginBarResponsiveDiv,
+.loginDiv {
+  box-sizing: border-box;
+}
+
+.loginDiv {
+  width: 460px;
+  height: 100vh;
+  padding: var(--padding-lg) var(--padding-2xs);
+  justify-content: space-between;
+}
+
+.loginBarResponsiveDiv {
+  align-self: stretch;
+  width: 500px;
+  padding: var(--padding-xs) 20px;
+  justify-content: flex-start;
+}
+
+.tronLegacyWallpapers1080P7Icon {
+  flex: 1;
+  align-self: stretch;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.backgroundDiv {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginPageMain {
+  position: relative;
+  background-color: var(--background2);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  text-align: center;
+  font-size: var(--font-size-5xl);
+  color: var(--color-white);
+  font-family: var(--font-euclid-circular-a);
+}
+
+@media screen and (max-width: 1200px) {
+  .logoA {
+    font-size: var(--font-size-4xl);
+  }
+
+  .facebook {
+    height: 61px;
+    padding-bottom: var(--padding-sm);
+    box-sizing: border-box;
+  }
+
+  .dividerLabel {
+    padding-top: var(--padding-md);
+    padding-bottom: var(--padding-md);
+    box-sizing: border-box;
+  }
+
+  .emailDiv {
+    font-size: 20;
+    text-align: left;
+  }
+
+  .form,
+  .loginDiv {
+    padding-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .form {
+    height: 200px;
+    padding-top: 0;
+  }
+
+  .loginDiv {
+    padding-top: 0;
+  }
+
+
+}
+
+@media screen and (max-width: 768px) {
+  .logoA {
+    font-size: var(--font-size-2xl);
+  }
+
+  .bannerI {
+    font-size: var(--font-size-base);
+  }
+
+  .facebook {
+    height: 51px;
+    color: FFFFFF;
+  }
+
+  .footageDiv {
+    flex-direction: column;
+  }
+
+  .loginDiv {
+    padding-right: 40px;
+    box-sizing: border-box;
+  }
+
+  .loginBarResponsiveDiv,
+  .loginDiv {
+    width: 768px;
+  }
+
+  .backgroundDiv,
+  .tronLegacyWallpapers1080P7Icon {
+    display: none;
+  }
+
+  .loginPageMain {
+    min-width: 100vh;
+    min-height: 100vw;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .logoA {
+    font-size: var(--font-size-xl);
+  }
+
+  .bannerI {
+    font-size: var(--font-size-xs);
+  }
+
+  .footageDiv {
+    flex-direction: column;
+  }
+
+  .loginDiv {
+    width: 428px;
+  }
+
+  .backgroundDiv,
+  .tronLegacyWallpapers1080P7Icon {
+    display: none;
+  }
+}

@@ -1,0 +1,105 @@
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.vectorIcon {
+  position: absolute;
+  height: 41.67%;
+  width: 41.67%;
+  top: 29.17%;
+  right: 29.17%;
+  bottom: 29.17%;
+  left: 29.17%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.closeButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.closeDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+.avatarIcon {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.baturayDiv {
+  position: relative;
+  color: var(--color-white);
+  display: inline-block;
+}
+.usernameDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap-sm);
+}
+.totalWin {
+  position: relative;
+  display: inline-block;
+}
+.twemojiflagTurkeyIcon {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.buttonsDiv,
+.userProfileDiv {
+  display: flex;
+  box-sizing: border-box;
+}
+.buttonsDiv {
+  flex: 1;
+  align-self: stretch;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-xs);
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--gap-lg);
+}
+.userProfileDiv {
+  position: relative;
+  background-color: var(--background2);
+  width: 800px;
+  height: 600px;
+  flex-direction: column;
+  padding: var(--padding-lg);
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-sm);
+  opacity: 0;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--tron-blue);
+  font-family: var(--font-tr2n);
+}
+.userProfileDiv.animate {
+  animation: 1s ease 0s 1 normal forwards fade-in;
+}

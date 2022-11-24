@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=TR2N:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Euclid+Circular+A:ital,wght@1,600&display=swap");
+body {
+  margin: 0;
+  line-height: normal;
+}
+:root {
+  /* fonts */
+  --font-euclid-circular-a: Euclid Circular A;
+  --font-tr2n: TR2N;
+  --font-euclid-circular-a: "Euclid Circular A";
+
+  /* font sizes */
+  --font-size-xs: 15px;
+  --font-size-sm: 20px;
+  --font-size-base: 25px;
+  --font-size-lg: 35px;
+  --font-size-xl: 40px;
+  --font-size-2xl: 45px;
+  --font-size-3xl: 50px;
+  --font-size-4xl: 55px;
+  --font-size-5xl: 75px;
+
+  /* Colors */
+  --color-cyan: #08f8ff;
+  --color-gray-100: #fef8f8;
+  --tron-blue: #55aceb;
+  --background2: rgba(30, 30, 30, 0.95);
+  --color-white: #fff;
+  --color-red-100: #ff0000;
+  --color-blue-100: #0048ef;
+  --blur: rgba(115, 142, 182, 0.2);
+
+  /* Gaps */
+  --gap-sm: 10px;
+  --gap-md: 15px;
+  --gap-lg: 16px;
+
+  /* Paddings */
+  --padding-3xs: 2px;
+  --padding-2xs: 8px;
+  --padding-xs: 10px;
+  --padding-sm: 12px;
+  --padding-md: 15px;
+  --padding-lg: 16px;
+  --padding-xl: 19px;
+  --padding-2xl: 20px;
+  --padding-3xl: 55px;
+}

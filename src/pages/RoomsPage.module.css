@@ -1,0 +1,503 @@
+.avatarButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  background-image: url(../../public/rectangle10@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.nameStrong,
+.userIconDiv {
+  display: flex;
+  align-items: center;
+}
+.nameStrong {
+  position: relative;
+  justify-content: flex-start;
+  width: 114px;
+  flex-shrink: 0;
+}
+.userIconDiv {
+  flex: 1;
+  align-self: stretch;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-lg);
+}
+.tRONButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: 70px;
+  font-family: var(--font-tr2n);
+  color: var(--tron-blue);
+  text-align: center;
+  display: inline-block;
+}
+.logoDiv,
+.roomsBannerDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logoDiv {
+  flex: 1;
+  padding: var(--padding-lg) 0;
+}
+.roomsBannerDiv {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 15vh;
+  flex-shrink: 0;
+  padding: var(--padding-lg);
+  gap: var(--gap-sm);
+}
+.roomNmaeStrong {
+  flex: 1;
+  position: relative;
+  justify-content: center;
+}
+.roomBannerDiv,
+.roomNmaeStrong,
+.testROOMStrong {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.roomBannerDiv {
+  height: 40px;
+  flex-shrink: 0;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.testROOMStrong {
+  flex: 1;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-tr2n);
+  color: var(--color-white);
+  text-align: center;
+  justify-content: center;
+}
+.vectorIcon {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+.antDesignlockFilledDiv {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.antDesignlockFilledDiv2 {
+    width: 20x;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.roomButton,
+.roomsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.roomButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-self: stretch;
+  height: 50px;
+  flex-shrink: 0;
+  flex-direction: row;
+}
+.roomButton:hover {
+  border: 3px solid #0483fa;
+  box-sizing: border-box;
+  position: relative;
+}
+.clicked{
+    border: 3px solid #0483fa;
+    box-sizing: border-box;
+    position: relative;
+}
+.roomsDiv {
+
+  box-shadow: 4px 4px 4px 10px rgba(77, 69, 69, 0.25);
+  flex-direction: column;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  font-size: var(--font-size-sm);
+}
+.buttonPrimaryText,
+.roomsDiv {
+  flex: 1;
+  align-self: stretch;
+}
+.buttonPrimaryText{
+    margin-right: 25px;
+}
+.buttonsDiv {
+  width: 30vw;
+  height: auto;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-xs) var(--padding-lg);
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: center;
+
+}
+.friendMessageButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: 12px;
+  font-family: var(--font-tr2n);
+  color: #f60303;
+  text-align: center;
+  display: inline-block;
+}
+.vectorIcon1 {
+  position: absolute;
+  height: 41.67%;
+  width: 41.67%;
+  top: 29.17%;
+  right: 29.17%;
+  bottom: 29.17%;
+  left: 29.17%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.vectorIcon2 {
+    position: absolute;
+    height: 6.67%;
+    width: 73.33%;
+    top: 46.67%;
+    right: 13.33%;
+    bottom: 46.67%;
+    left: 13.33%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.closeButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.messageboxDiv1,
+.messageboxclosedDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.messageboxclosedDiv {
+  align-self: stretch;
+  border: 2px solid #05bdf6;
+  box-sizing: border-box;
+  position: relative;
+  padding: var(--padding-xs) 0;
+  align-items: center;
+  gap: var(--gap-sm);
+}
+.messageboxDiv1 {
+  align-items: flex-start;
+}
+.messagesBarDiv,
+.roomsBarDiv {
+  display: flex;
+  box-sizing: border-box;
+  align-items: flex-end;
+}
+.messagesBarDiv {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  align-self: stretch;
+  height: 76px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-2xs);
+  justify-content: flex-end;
+  color: #d9d9d9;
+  font-family: var(--font-euclid-circular-a);
+  z-index: 1;
+}
+.roomsBarDiv {
+  flex: 1;
+  height: 100%;
+  flex-direction: column;
+  padding: var(--padding-lg) 0;
+  justify-content: flex-start;
+  gap: var(--gap-sm);
+}
+.avatarButton1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  background-image: url(../../public/rectangle12@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.nameStrong1,
+.user123Div {
+  align-self: stretch;
+  display: flex;
+}
+.user123Div {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 92px;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+.nameStrong1 {
+
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.vectorIcon5 {
+  position: absolute;
+  height: 8.33%;
+  width: 75%;
+  top: 45.83%;
+  right: 12.5%;
+  bottom: 45.83%;
+  left: 12.5%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+.minusButton {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.vectorIcon6 {
+    position: absolute;
+    height: 41.67%;
+    width: 41.67%;
+    top: 29.17%;
+    right: 29.17%;
+    bottom: 29.17%;
+    left: 29.17%;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+}
+
+.minusButton1:hover,
+.minusButton:hover {
+    border: 2px solid var(--color-white);
+    box-sizing: border-box;
+}
+.chatBannerDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  align-self: stretch;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+}
+.nameButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  position: relative;
+  font-size: var(--font-size-sm);
+  font-family: var(--font-tr2n);
+  color: var(--tron-blue);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  font-size:15px;
+  flex-shrink: 0;
+}
+.friendDiv {
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  height: 82px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  font-size: var(--font-size-xl);
+  color: rgba(244, 20, 34, 0.95);
+}
+.chatBarDiv,
+.roomsPageMain {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.chatBarDiv {
+  align-self: stretch;
+  width: 256px;
+  flex-shrink: 0;
+  flex-direction: column;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+  font-size: var(--font-size-sm);
+}
+.roomsPageMain {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  flex-direction: row;
+  background-image: url(../../public/roomspage@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--tron-blue);
+  font-family: var(--font-tr2n);
+}
+
+.bannerDiv,
+.friendMessageDiv,
+.myMessageDiv {
+    align-self: stretch;
+    height: 51px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.friendMessageDiv,
+.myMessageDiv {
+    height: 50px;
+    padding: var(--padding-lg) var(--padding-2xs);
+    box-sizing: border-box;
+    justify-content: flex-start;
+}
+
+
+.messageboxDiv {
+    background-color: var(--blur);
+    width: 24vw;
+    height: 70vh;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-0);
+}
+
+.userInfoDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: var(--gap-sm);
+}
+
+.rectangleIcon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.user123ddsdI {
+    position: relative;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.closeButton1 {
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.messageAreaDiv {
+    flex: 1;
+    display: flex;
+    overflow-y: scroll;
+    overflow-wrap:anywhere;
+        scrollbar-color: rebeccapurple green;
+        scrollbar-width: thin;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-0);
+    color: #000;
+}
+
+.messageAreaDiv,
+.textareaBorderInputTextArea {
+    align-self: stretch;
+}
+
+.friendMessageDiv {
+    justify-content: flex-end;
+    color: #e5dbdb;
+}
+
+@media screen and (max-width: 1200px) {
+  .buttonsDiv {
+    aspect-ratio: 3;
+  }
+}

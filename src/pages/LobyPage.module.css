@@ -1,0 +1,270 @@
+.helloworldDiv,
+.roomNameDiv {
+  position: relative;
+  line-height: 22px;
+  display: inline-block;
+}
+
+.helloworldDiv {
+  color: var(--color-white);
+}
+
+.lobyBannerDiv,
+.nameDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.nameDiv {
+  justify-content: flex-start;
+  gap: var(--gap-md);
+  mix-blend-mode: exclusion;
+}
+
+.lobyBannerDiv {
+  height: 10vh;
+  flex-shrink: 0;
+  justify-content: space-between;
+
+}
+
+.rEDTEAMDiv {
+  position: relative;
+  line-height: 24px;
+  display: inline-block;
+}
+
+.teamBannerDiv {
+  align-self: stretch;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.rectangleButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  align-self: stretch;
+  position: relative;
+  width: 50px;
+  flex-shrink: 0;
+  background-image: url(../../public/rectangle12@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.playerInfoDiv {
+  flex: 1;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 var(--padding-lg);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--gap-sm);
+}
+
+.vectorIcon {
+  position: absolute;
+  height: 90.63%;
+  width: 93.75%;
+  top: 4.69%;
+  right: 3.13%;
+  bottom: 4.69%;
+  left: 3.13%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.adminStatDiv {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.vectorIcon1 {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+.playerStatsDiv {
+  flex: 1;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  padding: 0 var(--padding-lg);
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--gap-sm);
+}
+
+.playerDiv,
+.playersDiv {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.playerDiv {
+  height: 50px;
+  flex-shrink: 0;
+  flex-direction: row;
+  padding: var(--padding-2xs) 0;
+  box-sizing: border-box;
+  gap: var(--gap-sm);
+}
+
+.playersDiv {
+  flex: 1;
+  flex-direction: column;
+  font-size: var(--font-size-base);
+}
+
+.dropdownButtonWithDropdown {
+  width: 121px;
+  display: flex;
+  flex-direction: column;
+}
+
+.changeColorContainerDiv,
+.lobyDiv,
+.teamDiv {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.changeColorContainerDiv {
+  flex-direction: row;
+  justify-content: center;
+  font-family: var(--font-euclid-circular-a);
+}
+
+.lobyDiv,
+.teamDiv {
+  flex: 1;
+  flex-direction: column;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+.teamDiv:hover {
+  border: 3px solid var(--color-cyan);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.lobyDiv {
+  flex-direction: row;
+  gap: var(--gap-sm);
+  font-size: var(--font-size-3xl);
+  color: var(--tron-blue);
+}
+
+.buttonDefault {
+  width: 200px;
+}
+
+.leftButtonsDiv {
+  align-self: stretch;
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.lobbyButtonsDiv,
+.rightButtonsDiv {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.rightButtonsDiv {
+  justify-content: center;
+  gap: var(--gap-sm);
+}
+
+.lobbyButtonsDiv {
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  justify-content: space-between;
+  font-family: var(--font-euclid-circular-a);
+  aspect-ratio: 23.1;
+  height: auto;
+}
+
+.lobyChatMessagesDiv {
+  flex: 1;
+  align-self: stretch;
+}
+
+.textareaStandardFormGroup {
+  align-self: stretch;
+}
+
+.lobyChatDiv,
+.lobyPageDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.lobyChatDiv {
+  align-self: stretch;
+  flex-shrink: 0;
+  align-items: center;
+  font-family: var(--font-euclid-circular-a);
+  height: 25vh;
+}
+
+.lobyPageDiv {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: var(--padding-lg) var(--padding-2xs);
+  box-sizing: border-box;
+  align-items: flex-start;
+  background-image: url(../../public/lobypage@3x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-red-100);
+  font-family: var(--font-tr2n);
+}
+
+@media screen and (max-width: 1200px) {
+  .lobbyButtonsDiv {
+    font-family: var(--font-euclid-circular-a);
+  }
+}
