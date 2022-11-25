@@ -87,7 +87,7 @@ export const RoomForm = (props) => {
             <form className={formStyles.form} onSubmit={handleSubmit}>
                 <div className={formStyles.usernameDiv}>
                     <Form.Group className={formStyles.rectangleFormGroup}>
-                        <Form.Label>username</Form.Label>
+                        <Form.Label>Room Name</Form.Label>
                         <Form.Control type="text" />
                     </Form.Group>
                 </div>

@@ -176,7 +176,7 @@ const RoomsPage = (props) => {
             }
         };
         navigate(`/room/${selectedRoom._id}`, {
-            state: { roomId: selectedRoom._id },
+            state: { roomId: selectedRoom._id, myProfile: profileInfo },
         });
         joinRoom(selectedRoom);
     };

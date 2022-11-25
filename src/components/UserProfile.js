@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import styles from "./UserProfile.module.css";
+import axios from "axios";
 
 const UserProfile = (props) => {
     useEffect(() => {
@@ -45,9 +46,11 @@ const UserProfile = (props) => {
                         Authorization: `Bearer ${auth_token}`,
                     },
                 });
-                updateFriends((prev) => {
-                    return { ...prev, friends: res.data.message.friends };
-                });
+                if (updateFriends) {
+                    updateFriends((prev) => {
+                        return { ...prev, friends: res.data.message.friends };
+                    });
+                }
                 props.onClose();
             } catch (error) {
                 console.log("Couldnt delete friend ", error);
@@ -101,7 +104,13 @@ const UserProfile = (props) => {
                             Delete Friend
                         </Button>
                     ) : (
-                        <Button variant="success" size="lg">
+                        <Button
+                            variant="success"
+                            size="lg"
+                            onClick={(e) => {
+                                props.handleAddFriend(props.profileInfo._id);
+                            }}
+                        >
                             Add Friend
                         </Button>
                     )}

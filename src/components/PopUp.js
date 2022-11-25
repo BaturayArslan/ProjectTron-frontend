@@ -1,6 +1,7 @@
 import { React } from "react";
 import UserProfile from "./UserProfile";
 import { RoomForm } from "./RoomForm";
+import { FriendRequest } from "./FriendRequest";
 
 export const PopUp = (props) => {
     let component;
@@ -11,11 +12,24 @@ export const PopUp = (props) => {
                     profileInfo={props.data}
                     onClose={props.onClose}
                     updateFriends={props.updateFriends}
+                    handleAddFriend={props.handleAddFriend}
                 />
             );
             break;
         case "ROOMFORM":
             component = <RoomForm onClose={props.onClose} />;
+            break;
+        case "FRIENDREQUEST":
+            component = (
+                <FriendRequest
+                    onClose={props.onClose}
+                    event={props.data.event}
+                    handleDeclineFriend={props.data.handleDeclineFriend}
+                    handleAcceptFriend={props.data.handleAcceptFriend}
+                    socket={props.socket}
+                />
+            );
+            break;
         default:
             break;
     }
