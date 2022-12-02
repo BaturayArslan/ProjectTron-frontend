@@ -184,6 +184,7 @@
   flex: 1;
   flex-direction: column;
   font-size: var(--font-size-base);
+  gap: 20px;
 }
 
 .dropdownButtonWithDropdown {
@@ -321,6 +322,20 @@
   font-size: var(--font-size-base);
   color: var(--color-red-100);
   font-family: var(--font-tr2n);
+}
+
+
+@media screen and (max-width: 1400px) {
+    .lobyChatDiv{
+        height: 15vh;
+    }
+    .userMessage{
+        font-size: var(--font-size-xs);
+    }
+    .systemMessage{
+        font-size: var(--font-size-xs);
+    }
+
 }
 
 @media screen and (max-width: 1200px) {

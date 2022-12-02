@@ -1,0 +1,133 @@
+.game {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0px 0px;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../../public/game.png");
+    font-family: Euclid Circular A;
+}
+
+.banner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0px;
+    width: 100%;
+    height: 100px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+.score-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+
+    height: 100%;
+
+
+    /* Inside auto layout */
+
+    flex: 1;
+
+}
+
+.blue-team {
+    height: 100%;
+    background: linear-gradient(82.54deg, #00C0FD 0.53%, rgba(5, 189, 247, 0) 111.79%);
+    flex-direction: row;
+    flex-basis: 23%;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1px;
+    font-size: 2.188rem;
+    display: flex;
+}
+
+.team {
+    font-style: italic;
+}
+
+.num-15 {
+    font-size: 3.125rem;
+    color: #fff;
+    margin-top: 1px;
+    margin-left: 11px;
+    font-style: italic;
+}
+
+.red-team {
+    color: #fff;
+    height: 100%;
+    background: linear-gradient(282.12deg, #FF6E1D 1.73%, rgba(255, 110, 29, 0) 96.61%);
+    flex-direction: row;
+    flex-basis: 23%;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 1px;
+    font-size: 2.188rem;
+    display: flex;
+}
+
+.num-15-1 {
+    margin-top: 1px;
+    font-size: 3.125rem;
+    font-style: italic;
+}
+
+.red-team-1 {
+    color: #f1dbdb;
+    margin-left: 7px;
+    font-style: italic;
+}
+
+.close-button-container {
+    width: 100px;
+    height: 100%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.game-container {
+    background: #c0aeae;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+@media screen and (max-width: 1400px) {
+    .banner-container{
+        height: 50px;
+    }
+    .close-button-container{
+        width: 50px;
+    }
+    .blue-team{
+        font-size: var(--font-size-sm);
+    }
+    .red-team{
+        font-size: var(--font-size-sm);
+
+    }
+
+}

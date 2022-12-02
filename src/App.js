@@ -11,6 +11,7 @@ import RoomsPage from "./pages/RoomsPage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import CompleteLoginPage from "./pages/CompleteLoginPage";
+import { Test } from "./pages/Test";
 import { useEffect, useState } from "react";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
@@ -163,6 +164,11 @@ function App() {
             <Route
                 path="/complete_login/complete"
                 element={<CompleteLoginPage />}
+            />
+
+            <Route
+                path="/test/game"
+                element={<Test messages={[]} players={[]} roomInfo={{}} />}
             />
         </Routes>
     );

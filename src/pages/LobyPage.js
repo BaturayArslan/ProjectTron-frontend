@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { Alert, message, Input } from "antd";
 import { useLocation, redirect, Navigate, useNavigate } from "react-router-dom";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { Fragment, useState, useEffect, useRef, useCallback } from "react";
 import jwtDecode from "jwt-decode";
 import styles from "./LobyPage.module.css";
 import { Player } from "../components/Player";
@@ -39,6 +39,7 @@ const LobyPage = () => {
     const [messages, setMessages] = useState([]);
     const [textAreaValue, setTextAreaValue] = useState("");
     const [popUpInfo, setPopUpInfo] = useState(false);
+    const [isGameStarted, setIsGameStarted] = useState(false);
 
     const closePopup = useCallback(() => {
         setPopUpInfo(false);
@@ -159,6 +160,11 @@ const LobyPage = () => {
                         });
                     }
                     break;
+                case 10:
+                    setIsGameStarted((prev) => {
+                        return true;
+                    });
+                    break;
                 default:
                     break;
             }
@@ -224,7 +230,7 @@ const LobyPage = () => {
         }
     };
     useEffect(() => {
-        if (roomInfo) {
+        if (roomInfo && !isGameStarted) {
             let elem = document.getElementById("myMessageAreaDiv");
             elem.scrollTo(0, elem.scrollHeight);
         }
@@ -280,201 +286,262 @@ const LobyPage = () => {
         closePopup();
     };
 
-    if (roomInfo) {
+    const handleStartGame = () => {
+        let not_ready_player = players.find((player) => {
+            return !player.is_ready;
+        });
+        if (not_ready_player) {
+            setErrorMessage((prev) => {
+                return ["Not All Player Is Ready.."];
+            });
+        }
+        let event = {
+            event_number: 10,
+            info: {
+                user_id: decoded_auth_token.user_claims.user_id,
+            },
+        };
+        socket.send(JSON.stringify(event));
+    };
+
+    if (!isGameStarted) {
         return (
             <div className={styles.lobyPageDiv}>
-                <div className={styles.lobyBannerDiv}>
-                    <div className={styles.nameDiv}>
-                        <div
-                            className={styles.roomNameDiv}
-                        >{`Room Name: `}</div>
-                        <div className={styles.helloworldDiv}>
-                            {roomInfo.name}
-                        </div>
-                    </div>
-                    <div className={styles.nameDiv}>
-                        <div className={styles.roomNameDiv}>{`Max User `}</div>
-                        <div className={styles.helloworldDiv}>
-                            {roomInfo.max_user}
-                        </div>
-                    </div>
-                    <div className={styles.nameDiv}>
-                        <div className={styles.roomNameDiv}>Max Round</div>
-                        <div className={styles.helloworldDiv}>
-                            {roomInfo.max_point}
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.lobyDiv}>
-                    <div
-                        className={styles.teamDiv}
-                        onClick={(e) => {
-                            handleChangeColor(teamColors[0]);
-                        }}
-                    >
-                        <div className={styles.teamBannerDiv}>
-                            <div className={styles.rEDTEAMDiv}>
-                                {COLORS[teamColors[0]]} TEAM
+                {roomInfo && (
+                    <Fragment>
+                        <div className={styles.lobyBannerDiv}>
+                            <div className={styles.nameDiv}>
+                                <div
+                                    className={styles.roomNameDiv}
+                                >{`Room Name: `}</div>
+                                <div className={styles.helloworldDiv}>
+                                    {roomInfo.name}
+                                </div>
+                            </div>
+                            <div className={styles.nameDiv}>
+                                <div
+                                    className={styles.roomNameDiv}
+                                >{`Max User `}</div>
+                                <div className={styles.helloworldDiv}>
+                                    {roomInfo.max_user}
+                                </div>
+                            </div>
+                            <div className={styles.nameDiv}>
+                                <div className={styles.roomNameDiv}>
+                                    Max Round
+                                </div>
+                                <div className={styles.helloworldDiv}>
+                                    {roomInfo.max_point}
+                                </div>
                             </div>
                         </div>
-                        {players.map((player, index) => {
-                            if (parseInt(player.color) === teamColors[0]) {
-                                console.log(player, teamColors[0], roomInfo);
-                                if (player.user_id === roomInfo.admin) {
-                                    return (
-                                        <Player
-                                            isAdmin={true}
-                                            info={player}
-                                            key={index}
-                                            handlePopUpInfo={handlePopUpInfo}
-                                            myProfile={myProfile}
-                                        />
-                                    );
-                                }
-                                return (
-                                    <Player
-                                        isAdmin={false}
-                                        handlePopUpInfo={handlePopUpInfo}
-                                        info={player}
-                                        key={index}
-                                        myProfile={myProfile}
-                                    />
-                                );
-                            }
-                        })}
-                    </div>
-                    <div
-                        className={styles.teamDiv}
-                        onClick={(e) => {
-                            handleChangeColor(teamColors[1]);
-                        }}
-                    >
-                        <div className={styles.teamBannerDiv}>
-                            <div className={styles.rEDTEAMDiv}>
-                                {COLORS[teamColors[1]]} TEAM
-                            </div>
-                        </div>
-                        {players.map((player, index) => {
-                            if (player.color === teamColors[1]) {
-                                if (player.user_id === roomInfo.admin) {
-                                    return (
-                                        <Player
-                                            isAdmin={true}
-                                            info={player}
-                                            key={index}
-                                            handlePopUpInfo={handlePopUpInfo}
-                                            myProfile={myProfile}
-                                        />
-                                    );
-                                }
-                                return (
-                                    <Player
-                                        isAdmin={false}
-                                        info={player}
-                                        key={index}
-                                        handlePopUpInfo={handlePopUpInfo}
-                                        myProfile={myProfile}
-                                    />
-                                );
-                            }
-                        })}
-                    </div>
-                </div>
-                <div className={styles.lobbyButtonsDiv}>
-                    <div className={styles.leftButtonsDiv}>
-                        <Button
-                            className={styles.buttonDefault}
-                            variant="danger"
-                            size="lg"
-                            onClick={(e) => {
-                                handleLeaveRoom();
-                            }}
-                        >
-                            Leave Room
-                        </Button>
-                    </div>
-                    <div className={styles.rightButtonsDiv}>
-                        {decoded_auth_token.user_claims.user_id ===
-                            roomInfo.admin && (
-                            <Button
-                                className={styles.buttonDefault}
-                                variant="primary"
-                                size="lg"
+                        <div className={styles.lobyDiv}>
+                            <div
+                                className={styles.teamDiv}
+                                onClick={(e) => {
+                                    handleChangeColor(teamColors[0]);
+                                }}
                             >
-                                Start Game
-                            </Button>
+                                <div className={styles.teamBannerDiv}>
+                                    <div className={styles.rEDTEAMDiv}>
+                                        {COLORS[teamColors[0]]} TEAM
+                                    </div>
+                                </div>
+                                <div className={styles.playersDiv}>
+                                    {players.map((player, index) => {
+                                        if (
+                                            parseInt(player.color) ===
+                                            teamColors[0]
+                                        ) {
+                                            console.log(
+                                                player,
+                                                teamColors[0],
+                                                roomInfo
+                                            );
+                                            if (
+                                                player.user_id ===
+                                                roomInfo.admin
+                                            ) {
+                                                return (
+                                                    <Player
+                                                        isAdmin={true}
+                                                        info={player}
+                                                        key={index}
+                                                        handlePopUpInfo={
+                                                            handlePopUpInfo
+                                                        }
+                                                        myProfile={myProfile}
+                                                    />
+                                                );
+                                            }
+                                            return (
+                                                <Player
+                                                    isAdmin={false}
+                                                    handlePopUpInfo={
+                                                        handlePopUpInfo
+                                                    }
+                                                    info={player}
+                                                    key={index}
+                                                    myProfile={myProfile}
+                                                />
+                                            );
+                                        }
+                                    })}
+                                </div>
+                            </div>
+                            <div
+                                className={styles.teamDiv}
+                                onClick={(e) => {
+                                    handleChangeColor(teamColors[1]);
+                                }}
+                            >
+                                <div className={styles.teamBannerDiv}>
+                                    <div className={styles.rEDTEAMDiv}>
+                                        {COLORS[teamColors[1]]} TEAM
+                                    </div>
+                                </div>
+                                <div className={styles.playersDiv}>
+                                    {players.map((player, index) => {
+                                        if (player.color === teamColors[1]) {
+                                            if (
+                                                player.user_id ===
+                                                roomInfo.admin
+                                            ) {
+                                                return (
+                                                    <Player
+                                                        isAdmin={true}
+                                                        info={player}
+                                                        key={index}
+                                                        handlePopUpInfo={
+                                                            handlePopUpInfo
+                                                        }
+                                                        myProfile={myProfile}
+                                                    />
+                                                );
+                                            }
+                                            return (
+                                                <Player
+                                                    isAdmin={false}
+                                                    info={player}
+                                                    key={index}
+                                                    handlePopUpInfo={
+                                                        handlePopUpInfo
+                                                    }
+                                                    myProfile={myProfile}
+                                                />
+                                            );
+                                        }
+                                    })}
+                                </div>
+                            </div>
+                        </div>
+                        <div className={styles.lobbyButtonsDiv}>
+                            <div className={styles.leftButtonsDiv}>
+                                <Button
+                                    className={styles.buttonDefault}
+                                    variant="danger"
+                                    size="lg"
+                                    onClick={(e) => {
+                                        handleLeaveRoom();
+                                    }}
+                                >
+                                    Leave Room
+                                </Button>
+                            </div>
+                            <div className={styles.rightButtonsDiv}>
+                                {decoded_auth_token.user_claims.user_id ===
+                                    roomInfo.admin && (
+                                    <Button
+                                        className={styles.buttonDefault}
+                                        variant="primary"
+                                        size="lg"
+                                        onClick={handleStartGame}
+                                    >
+                                        Start Game
+                                    </Button>
+                                )}
+                                <Button
+                                    className={styles.buttonDefault}
+                                    variant="primary"
+                                    size="lg"
+                                    onClick={(e) => {
+                                        handleReady();
+                                    }}
+                                >
+                                    Ready
+                                </Button>
+                            </div>
+                        </div>
+                        <div className={styles.lobyChatDiv}>
+                            <div
+                                className={styles.lobyChatMessagesDiv}
+                                id="myMessageAreaDiv"
+                            >
+                                {messages.map((message, index) => {
+                                    if (message.user_name === "system") {
+                                        return (
+                                            <div
+                                                className={styles.systemMessage}
+                                                key={index}
+                                            >
+                                                [System Message] {message.msg}
+                                            </div>
+                                        );
+                                    } else {
+                                        return (
+                                            <div
+                                                className={styles.userMessage}
+                                                key={index}
+                                            >
+                                                {message.user_name} :{" "}
+                                                {message.msg}
+                                            </div>
+                                        );
+                                    }
+                                })}
+                            </div>
+                            <Input.TextArea
+                                className={styles.textareaBorderInputTextArea}
+                                size="small"
+                                placeholder={`Chat...`}
+                                value={textAreaValue}
+                                onChange={handleTexArea}
+                                onPressEnter={listener}
+                            />
+                        </div>
+
+                        {popUpInfo && (
+                            <PortalPopup
+                                overlayColor="rgba(113, 113, 113, 0.3)"
+                                placement="Centered"
+                                onOutsideClick={closePopup}
+                            >
+                                <PopUp
+                                    onClose={closePopup}
+                                    data={popUpInfo}
+                                    updateFriends={false}
+                                    handleAddFriend={handleAddFriend}
+                                    socket={socket}
+                                />
+                            </PortalPopup>
                         )}
-                        <Button
-                            className={styles.buttonDefault}
-                            variant="primary"
-                            size="lg"
-                            onClick={(e) => {
-                                handleReady();
-                            }}
-                        >
-                            Ready
-                        </Button>
-                    </div>
-                </div>
-                <div className={styles.lobyChatDiv}>
-                    <div
-                        className={styles.lobyChatMessagesDiv}
-                        id="myMessageAreaDiv"
-                    >
-                        {messages.map((message, index) => {
-                            if (message.user_name === "system") {
-                                return (
-                                    <div
-                                        className={styles.systemMessage}
-                                        key={index}
-                                    >
-                                        [System Message] {message.msg}
-                                    </div>
-                                );
-                            } else {
-                                return (
-                                    <div
-                                        className={styles.userMessage}
-                                        key={index}
-                                    >
-                                        {message.user_name} : {message.msg}
-                                    </div>
-                                );
-                            }
-                        })}
-                    </div>
-                    <Input.TextArea
-                        className={styles.textareaBorderInputTextArea}
-                        size="middle"
-                        placeholder={`Chat...`}
-                        value={textAreaValue}
-                        onChange={handleTexArea}
-                        onPressEnter={listener}
-                    />
-                </div>
-                {popUpInfo && (
-                    <PortalPopup
-                        overlayColor="rgba(113, 113, 113, 0.3)"
-                        placement="Centered"
-                        onOutsideClick={closePopup}
-                    >
-                        <PopUp
-                            onClose={closePopup}
-                            data={popUpInfo}
-                            updateFriends={false}
-                            handleAddFriend={handleAddFriend}
-                            socket={socket}
-                        />
-                    </PortalPopup>
+                        {successMessage.length === 1 &&
+                            message.success(successMessage.pop(), 10)}
+                        {errorMessage.length === 1 &&
+                            message.error(errorMessage.pop(), 10)}
+                    </Fragment>
                 )}
-                {successMessage.length === 1 &&
-                    message.success(successMessage.pop(), 10)}
-                {errorMessage.length === 1 &&
-                    message.error(errorMessage.pop(), 10)}
             </div>
         );
     } else {
-        <div>Loading....</div>;
+        return (
+            <GamePage2
+                players={players}
+                roomInfo={roomInfo}
+                messages={messages}
+                socket={socket}
+            />
+        );
     }
 };
 

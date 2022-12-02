@@ -49,7 +49,7 @@ export const Player = (props) => {
         get_friend_profile(props.info.user_id, props.handlePopUpInfo);
     };
     return (
-        <div className={styles.playersDiv}>
+        <Fragment>
             <div className={styles.playerDiv}>
                 <div className={styles.playerInfoDiv}>
                     <button
@@ -83,6 +83,6 @@ export const Player = (props) => {
             {errors.length === 1 && (
                 <ErrorMessage message={errors.pop()} isNotification={true} />
             )}
-        </div>
+        </Fragment>
     );
 };
