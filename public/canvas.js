@@ -38,3 +38,95 @@ function draw() {
         ctx.fillRect(150, 30, 100, 100);
     }
 }
+
+// let slope = (this.y - this.prevTile.y) / (this.x - this.prevTile.x);
+// if (slope === 0) slope = 1 / 100;
+// const nearPoints = this.calculateNearPoints(slope, margin);
+// let angle = Math.atan(-1 / slope);
+// nearPoints.forEach((pointPair, index) => {
+//     if (index === 0) {
+//         ctx.moveTo(this.x, this.y);
+//     }
+//     // draw a line
+//     ctx.moveTo(pointPair[1].x, pointPair[1].y);
+//     ctx.lineTo(pointPair[0].x, pointPair[0].y);
+// });
+
+// //draw a custom line cap
+// ctx.save();
+// ctx.translate(this.x, this.y);
+// ctx.rotate(angle);
+// ctx.fillStyle = "black";
+// ctx.arc(0, 0, Tile.width / 2, 0, Math.PI, false);
+// ctx.fill();
+// ctx.restore();
+// ctx.moveTo(this.prevTile.x, this.prevTile.y);
+
+// calculateNearPoints(slope, margin) {
+//     const antiSlope = -1 / slope;
+//     const angle = Math.atan(antiSlope);
+//     const distX = this.x - this.prevTile.x;
+//     const distY = this.y - this.prevTile.y;
+//     const point_1 = {
+//         x:
+//             distY <= 0
+//                 ? this.x + margin * Math.cos(angle)
+//                 : this.x - margin * Math.cos(angle),
+//         y:
+//             distY <= 0
+//                 ? this.y + margin * Math.sin(angle)
+//                 : this.y - margin * Math.sin(angle),
+//     };
+//     const point_2 = {
+//         x: point_1.x - distX,
+//         y: point_1.y - distY,
+//     };
+//     const point_3 = {
+//         x:
+//             distY <= 0
+//                 ? this.x + 2 * margin * Math.cos(angle)
+//                 : this.x - 2 * margin * Math.cos(angle),
+//         y:
+//             distY <= 0
+//                 ? this.y + 2 * margin * Math.sin(angle)
+//                 : this.y - 2 * margin * Math.sin(angle),
+//     };
+//     const point_4 = {
+//         x: point_3.x - distX,
+//         y: point_3.y - distY,
+//     };
+//     const point_5 = {
+//         x:
+//             distY <= 0
+//                 ? this.x - margin * Math.cos(angle)
+//                 : this.x + margin * Math.cos(angle),
+//         y:
+//             distY <= 0
+//                 ? this.y - margin * Math.sin(angle)
+//                 : this.y + margin * Math.sin(angle),
+//     };
+//     const point_6 = {
+//         x: point_5.x - distX,
+//         y: point_5.y - distY,
+//     };
+//     const point_7 = {
+//         x:
+//             distY <= 0
+//                 ? this.x - 2 * margin * Math.cos(angle)
+//                 : this.x + 2 * margin * Math.cos(angle),
+//         y:
+//             distY <= 0
+//                 ? this.y - 2 * margin * Math.sin(angle)
+//                 : this.y + 2 * margin * Math.sin(angle),
+//     };
+//     const point_8 = {
+//         x: point_7.x - distX,
+//         y: point_7.y - distY,
+//     };
+//     return [
+//         [point_1, point_2],
+//         [point_3, point_4],
+//         [point_5, point_6],
+//         [point_7, point_8],
+//     ];
+// }

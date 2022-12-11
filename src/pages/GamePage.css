@@ -7,8 +7,18 @@
     padding: 16px 0px 0px;
     width: 100vw;
     height: 100vh;
-    background-image: url("../../public/game.png");
+    background-image: url("../../public/roomspage@3x.png");
+    background-size: cover;
+        background-repeat: no-repeat;
+        background-position: top;
     font-family: Euclid Circular A;
+}
+
+body {
+    /*overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    /*overflow-x: hidden;
+    /* Hide horizontal scrollbar */
 }
 
 .banner-container {
@@ -18,7 +28,7 @@
     align-items: center;
     padding: 0px;
     width: 100%;
-    height: 100px;
+    height: 100;
 
     /* Inside auto layout */
 
@@ -100,6 +110,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 
 
     /* Inside auto layout */
@@ -110,8 +121,11 @@
 }
 
 .game-container {
-    background: #c0aeae;
+    background: #141313c9;
     box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.25);
+    border-color: #00C0FD;
+    border-width: 4px;
+    border-style: solid;
 }
 
 

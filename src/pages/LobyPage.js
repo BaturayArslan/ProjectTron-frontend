@@ -15,6 +15,7 @@ import { Player } from "../components/Player";
 import PortalPopup from "../components/PortalPopup";
 import { PopUp } from "../components/PopUp";
 import { ErrorMessage } from "../components/ErrorMessage";
+import { GamePage, Game } from "./GamePage";
 
 const COLORS = {
     1: "RED",
@@ -40,16 +41,19 @@ const LobyPage = () => {
     const [textAreaValue, setTextAreaValue] = useState("");
     const [popUpInfo, setPopUpInfo] = useState(false);
     const [isGameStarted, setIsGameStarted] = useState(false);
+    const [game, setGame] = useState(null);
+    const [scoreBoard, setScoreBoard] = useState([0, 0]);
+    const [context, setContext] = useState(null);
 
     const closePopup = useCallback(() => {
         setPopUpInfo(false);
     }, []);
 
     useEffect(() => {
+        let socket = new WebSocket(
+            `ws://localhost:5000/ws/room/${roomId}?Authorization=${auth_token}`
+        );
         setSocket((prev) => {
-            let socket = new WebSocket(
-                `ws://localhost:5000/ws/room/${roomId}?Authorization=${auth_token}`
-            );
             socket.onopen = (e) => {
                 console.log("[open] Connection established.");
             };
@@ -69,7 +73,21 @@ const LobyPage = () => {
             };
             return socket;
         });
+
+        setGame((prev) => {
+            const newGame = new Game(1200, 400, socket);
+            return newGame;
+        });
     }, []);
+
+    useEffect(() => {
+        if (players.length > 0) {
+            socket.onmessage = (e) => {
+                const events = JSON.parse(e.data);
+                eventHandler(events);
+            };
+        }
+    }, [players, context]);
 
     const eventHandler = (events) => {
         for (let event of events) {
@@ -161,10 +179,59 @@ const LobyPage = () => {
                     }
                     break;
                 case 10:
+                    const id = decoded_auth_token.user_claims.user_id;
+                    const user = players.find((element) => {
+                        return element.user_id === id;
+                    });
+                    const others = players.filter((element) => {
+                        return element.user_id !== id;
+                    });
+                    game.addPlayers(user, others, event.info.start_positions);
+
                     setIsGameStarted((prev) => {
                         return true;
                     });
                     break;
+                case 12:
+                    game.pause = false;
+                    context.clearRect(0, 0, game.width, game.height);
+                    game.draw(context);
+                    break;
+                case 13:
+                    game.pause = true;
+                    setScoreBoard((prev) => {
+                        if (event.info.winner_color === 1) {
+                            //red team won.
+                            return [prev[0] + 1, prev[1]];
+                        } else {
+                            // blue team won.
+                            return [prev[0], prev[1] + 1];
+                        }
+                    });
+                    setPlayers((prev) => {
+                        return [...event.info.players];
+                    });
+                    game.endRound();
+                    break;
+                case 23:
+                    context.clearRect(0, 0, game.width, game.height);
+                    game.update(event.info.players);
+                    game.draw(context);
+                    break;
+                case 14:
+                    console.log("hello world", event);
+                    setPlayers((prev) => {
+                        return [...event.info.players];
+                    });
+                    setScoreBoard((prev) => {
+                        return [0, 0];
+                    });
+                    setIsGameStarted((prev) => {
+                        return false;
+                    });
+                    break;
+                case 666:
+                    navigate("/room/Rooms");
                 default:
                     break;
             }
@@ -535,10 +602,14 @@ const LobyPage = () => {
         );
     } else {
         return (
-            <GamePage2
+            <GamePage
                 players={players}
                 roomInfo={roomInfo}
                 messages={messages}
+                scoreBoard={scoreBoard}
+                setGame={setGame}
+                setContext={setContext}
+                game={game}
                 socket={socket}
             />
         );
