@@ -62,6 +62,8 @@ export const RoomForm = (props) => {
                     },
                 });
                 props.onClose();
+                const room_id = res.data.message.room_id;
+                props.handleJoinRoom(room_id);
             } catch (error) {
                 console.log("Couldnt Create Room", error);
                 setErrors((prev) => {

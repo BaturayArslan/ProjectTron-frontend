@@ -78,6 +78,10 @@ const LobyPage = () => {
             const newGame = new Game(1200, 400, socket);
             return newGame;
         });
+
+        return () => {
+            socket.close();
+        };
     }, []);
 
     useEffect(() => {
@@ -219,7 +223,6 @@ const LobyPage = () => {
                     game.draw(context);
                     break;
                 case 14:
-                    console.log("hello world", event);
                     setPlayers((prev) => {
                         return [...event.info.players];
                     });
@@ -420,11 +423,6 @@ const LobyPage = () => {
                                             parseInt(player.color) ===
                                             teamColors[0]
                                         ) {
-                                            console.log(
-                                                player,
-                                                teamColors[0],
-                                                roomInfo
-                                            );
                                             if (
                                                 player.user_id ===
                                                 roomInfo.admin

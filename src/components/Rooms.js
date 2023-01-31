@@ -62,7 +62,6 @@ export const Rooms = (props) => {
                         Authorization: `Bearer ${auth_token}`,
                     },
                 });
-                console.log(res.data);
                 update_rooms(res.data.events);
             } catch (error) {
                 if (error.response.status === 400) {
@@ -123,6 +122,18 @@ export const Rooms = (props) => {
                         return [...prev, event];
                     });
                     break;
+                case "room deletion":
+                    setRoomsArray((prev) => {
+                        let arr = prev.filter(
+                            (item) => item._id !== event.room_id
+                        );
+                        return [...arr];
+                    });
+
+                    setEvents((prev) => {
+                        return [...prev, event];
+                    });
+                    break;
                 case "empty":
                     setEvents((prev) => {
                         return [...prev, event];
@@ -132,6 +143,8 @@ export const Rooms = (props) => {
             }
         });
     };
+
+    const [clickedRoom, setClickedRoom] = useState(null);
 
     return (
         <div className={styles.roomsDiv}>
@@ -146,7 +159,10 @@ export const Rooms = (props) => {
                     <Room
                         info={item}
                         key={index}
+                        index={index}
                         handleSelectedRoom={props.handleSelectedRoom}
+                        setClickedRoom={setClickedRoom}
+                        isClicked={clickedRoom === index ? true : false}
                     />
                 );
             })}

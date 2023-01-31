@@ -9,13 +9,14 @@ import styles from "../pages/RoomsPage.module.css";
 export const Room = (props) => {
     return (
         <button
-            className={styles.roomButton}
+            className={
+                props.isClicked
+                    ? `${styles.roomButton} ${styles.clicked}`
+                    : `${styles.roomButton}`
+            }
             onClick={(e) => {
-                let elements = document.getElementsByClassName("clicked");
-                if (elements.length !== 0) {
-                    elements[0].classList.remove("clicked");
-                }
-                e.target.classList.add("clicked");
+                e.preventDefault();
+                props.setClickedRoom((prev) => props.index);
                 props.handleSelectedRoom(props.info);
             }}
         >

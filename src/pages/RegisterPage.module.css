@@ -139,7 +139,7 @@
 }
 .form {
   align-self: stretch;
-  height: 60vh;
+  height: 50vh;
   flex-shrink: 0;
   justify-content: space-between;
   font-size: 20px;
@@ -193,6 +193,37 @@
   color: var(--tron-blue);
   font-family: var(--font-tr2n);
 }
+
+@media screen and (max-width: 1400px) {
+    .logoA {
+        font-size: var(--font-size-4xl);
+    }
+
+    .rectangleIcon,
+    .rectangleIcon1,
+    .rectangleIcon2 {
+        width: 75px;
+        height: 75px;
+    }
+
+    .form {
+        padding-top: 0;
+        padding-bottom: 0;
+        box-sizing: border-box;
+        height: 60vh;
+    }
+    
+    .usernameDiv{
+        height: 11vh;
+        
+    }
+
+    .registerBarDiv {
+        padding:0 var(--padding-xl);
+    }
+
+}
+
 @media screen and (max-width: 1200px) {
   .logoA {
     font-size: var(--font-size-4xl);
@@ -213,6 +244,7 @@
     padding-bottom: 0;
     box-sizing: border-box;
   }
+
 }
 @media screen and (max-width: 768px) {
   .logoA {

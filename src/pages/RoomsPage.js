@@ -82,7 +82,6 @@ const RoomsPage = (props) => {
                         Authorization: `Bearer ${auth_token}`,
                     },
                 });
-                console.log(res.data);
                 setUnreadMessages((prev) => {
                     return [...prev, ...res.data.message];
                 });
@@ -167,18 +166,16 @@ const RoomsPage = (props) => {
         });
     };
 
-    const handleJoinRoom = () => {
-        const joinRoom = async (roomInfo) => {
-            try {
-                // Handle websocket connection
-            } catch (error) {
-                // Error handler for websocket connection
-            }
-        };
-        navigate(`/room/${selectedRoom._id}`, {
-            state: { roomId: selectedRoom._id, myProfile: profileInfo },
-        });
-        joinRoom(selectedRoom);
+    const handleJoinRoom = (room_id = null) => {
+        if (room_id) {
+            navigate(`/room/${room_id}`, {
+                state: { roomId: room_id, myProfile: profileInfo },
+            });
+        } else {
+            navigate(`/room/${selectedRoom._id}`, {
+                state: { roomId: selectedRoom._id, myProfile: profileInfo },
+            });
+        }
     };
 
     const jwt_token = localStorage.getItem("jwt_auth_token");
@@ -291,6 +288,7 @@ const RoomsPage = (props) => {
                     <PopUp
                         onClose={closePopup}
                         data={popUpInfo}
+                        handleJoinRoom={handleJoinRoom}
                         updateFriends={setProfileInfo}
                     />
                 </PortalPopup>

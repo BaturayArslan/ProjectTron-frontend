@@ -229,10 +229,6 @@ export const GamePage = (props) => {
             return ctx;
         });
         game.setContext(ctx);
-
-        return () => {
-            socket.close();
-        };
     }, []);
 
     const [textAreaValue, setTextAreaValue] = useState("");

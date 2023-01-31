@@ -17,7 +17,12 @@ export const PopUp = (props) => {
             );
             break;
         case "ROOMFORM":
-            component = <RoomForm onClose={props.onClose} />;
+            component = (
+                <RoomForm
+                    onClose={props.onClose}
+                    handleJoinRoom={props.handleJoinRoom}
+                />
+            );
             break;
         case "FRIENDREQUEST":
             component = (
