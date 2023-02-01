@@ -20,12 +20,15 @@ export const Rooms = (props) => {
         const get_room_info = async () => {
             try {
                 const auth_token = localStorage.getItem("jwt_auth_token");
-                let res = await axios.get("http://localhost:5000/room/Rooms", {
-                    method: "GET",
-                    headers: {
-                        Authorization: `Bearer ${auth_token}`,
-                    },
-                });
+                let res = await axios.get(
+                    "https://tron.hbarslan.com/room/Rooms",
+                    {
+                        method: "GET",
+                        headers: {
+                            Authorization: `Bearer ${auth_token}`,
+                        },
+                    }
+                );
                 setRoomsArray((prev) => {
                     return res.data.message;
                 });
@@ -51,7 +54,7 @@ export const Rooms = (props) => {
                     timestamp = events[events.length - 1].timestamp;
                 }
                 const auth_token = localStorage.getItem("jwt_auth_token");
-                const url = new URL("http://localhost:5000/room/update");
+                const url = new URL("https://tron.hbarslan.com/room/update");
                 if (timestamp) {
                     url.search = new URLSearchParams({
                         timestamp: timestamp,

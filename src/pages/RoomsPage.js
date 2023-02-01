@@ -34,7 +34,7 @@ const RoomsPage = (props) => {
         }
         const auth_token = localStorage.getItem("jwt_auth_token");
         const decoded_auth_token = jwtDecode(auth_token);
-        const url = new URL("http://localhost:5000/user/profile");
+        const url = new URL("https://tron.hbarslan.com/user/profile");
         url.search = new URLSearchParams({
             user_id: decoded_auth_token.user_claims.user_id,
         }).toString();
@@ -71,7 +71,7 @@ const RoomsPage = (props) => {
                 }
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 const url = new URL(
-                    "http://localhost:5000/user/update_messages"
+                    "https://tron.hbarslan.com/user/update_messages"
                 );
                 url.search = new URLSearchParams({
                     timestamp: timestamp,
@@ -131,7 +131,9 @@ const RoomsPage = (props) => {
     const update_last_opened = (friend_id, setError) => {
         const update_db = async (friend_id, setError) => {
             try {
-                const url = new URL("http://localhost:5000/user/last_opened");
+                const url = new URL(
+                    "https://tron.hbarslan.com/user/last_opened"
+                );
                 url.search = new URLSearchParams({ friend_id: friend_id });
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 let res = await axios.get(url, {

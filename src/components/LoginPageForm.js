@@ -20,7 +20,7 @@ export const LoginPageForm = (props) => {
                 email: e.target[0].value,
                 password: e.target[1].value,
             };
-            let res = await fetch("http://localhost:5000/auth/login", {
+            let res = await fetch("https://tron.hbarslan.com/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",

@@ -26,7 +26,7 @@ export const Friend = (props) => {
     const handleClick = (element) => {
         const get_friend_profile = async (user_id, setPopUp) => {
             try {
-                const url = new URL("http://localhost:5000/user/profile");
+                const url = new URL("https://tron.hbarslan.com/user/profile");
                 url.search = new URLSearchParams({ user_id: user_id });
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 let res = await axios.get(url, {

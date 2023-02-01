@@ -38,7 +38,9 @@ const UserProfile = (props) => {
     const handleDeleteFriend = () => {
         const get_friend_profile = async (friend_id, updateFriends) => {
             try {
-                const url = new URL("http://localhost:5000/user/delete_friend");
+                const url = new URL(
+                    "https://tron.hbarslan.com/user/delete_friend"
+                );
                 url.search = new URLSearchParams({ friend_id: friend_id });
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 let res = await axios.get(url, {

@@ -23,7 +23,7 @@ export const RegisterPageForm = (props) => {
             avatar: selectedAvatar,
             confirm: e.target[3].value,
         };
-        let res = await fetch("http://localhost:5000/auth/register", {
+        let res = await fetch("https://tron.hbarslan.com/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",

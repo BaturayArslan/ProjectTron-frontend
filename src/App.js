@@ -30,7 +30,7 @@ function App() {
     const refresh_auth_token = async () => {
         try {
             let res = await axios.post(
-                "http://localhost:5000/auth/refresh",
+                "https://tron.hbarslan.com/auth/refresh",
                 {},
                 {
                     headers: {

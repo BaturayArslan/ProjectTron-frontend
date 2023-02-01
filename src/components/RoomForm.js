@@ -47,7 +47,9 @@ export const RoomForm = (props) => {
     const handleSubmit = (e) => {
         const create_room = async (user_id, setPopUp) => {
             try {
-                const url = new URL("http://localhost:5000/room/createRoom");
+                const url = new URL(
+                    "https://tron.hbarslan.com/room/createRoom"
+                );
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 const data = {
                     name: e.target[0].value,

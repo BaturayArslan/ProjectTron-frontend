@@ -21,7 +21,7 @@ export const ChatBox = (props) => {
             return;
         }
         const auth_token = localStorage.getItem("jwt_auth_token");
-        const url = new URL("http://localhost:5000/user/get_messages");
+        const url = new URL("https://tron.hbarslan.com/user/get_messages");
         url.search = new URLSearchParams({ friend_id: props.id });
         const get_messages = async () => {
             try {
@@ -79,7 +79,7 @@ export const ChatBox = (props) => {
 
     const send_message = async (value) => {
         const auth_token = localStorage.getItem("jwt_auth_token");
-        let res = await fetch("http://localhost:5000/user/send_message", {
+        let res = await fetch("https://tron.hbarslan.com/user/send_message", {
             method: "POST",
             headers: {
                 Authorization: `Bearer ${auth_token}`,
