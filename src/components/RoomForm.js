@@ -53,9 +53,9 @@ export const RoomForm = (props) => {
                 const auth_token = localStorage.getItem("jwt_auth_token");
                 const data = {
                     name: e.target[0].value,
-                    password: e.target[1].value,
-                    max_user: e.target[2].value,
-                    max_point: e.target[3].value,
+                    password: "",
+                    max_user: e.target[1].value,
+                    max_point: e.target[2].value,
                 };
                 let res = await axios.post(url, data, {
                     headers: {
@@ -95,12 +95,12 @@ export const RoomForm = (props) => {
                         <Form.Control type="text" />
                     </Form.Group>
                 </div>
-                <div className={formStyles.passwordDiv}>
+                {/* <div className={formStyles.passwordDiv}>
                     <Form.Group className={formStyles.rectangleFormGroup}>
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" />
                     </Form.Group>
-                </div>
+                </div> */}
                 <div className={formStyles.usernameDiv}>
                     <Form.Group className={formStyles.rectangleFormGroup}>
                         <Form.Label>Max User</Form.Label>

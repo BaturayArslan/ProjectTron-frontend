@@ -51,7 +51,7 @@ const LobyPage = () => {
 
     useEffect(() => {
         let socket = new WebSocket(
-            `ws://localhost:5000/ws/room/${roomId}?Authorization=${auth_token}`
+            `wss://tron.hbarslan.com/ws/room/${roomId}?Authorization=${auth_token}`
         );
         setSocket((prev) => {
             socket.onopen = (e) => {
